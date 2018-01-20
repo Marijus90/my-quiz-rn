@@ -6,12 +6,13 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-import BackBtn from '../components/BackBtn';
+// import BackBtn from '../components/BackBtn';
 
 export default class Quiz extends React.Component {
-  // static navigationOptions = ({ navigation }) => ({
-    // header: null,
-  // });
+  static navigationOptions = {
+      header: null,
+  };
+
   render() {
     return (
       <View>

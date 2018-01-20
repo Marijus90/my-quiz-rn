@@ -6,14 +6,22 @@ import {
 } from 'react-native';
 
 export default class RoundedBtn extends React.Component {
-    render() {
-        return(
-            <TouchableHighlight  style={styles.roundedBtn} underlayColor="rgba(215, 147, 63,.3)">
-                <Text style={styles.roundedBtnText}>{this.props.text}</Text>
-            </TouchableHighlight>
-        );
-    }
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+      return(
+          <TouchableHighlight
+          onPress={this.props.onPress}
+          style={styles.roundedBtn}
+          underlayColor="rgba(215, 147, 63,.3)">
+              <Text style={styles.roundedBtnText}>{this.props.text}</Text>
+          </TouchableHighlight>
+      );
+  }
 }
+
 const styles = StyleSheet.create({
     roundedBtnText: {
         fontSize: 22,
