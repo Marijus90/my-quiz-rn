@@ -1,25 +1,46 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 // import BackgroundImage from './components/BackgroundImageAndAds';
 import RoundedBtn from './components/RoundedBtn';
+import Quiz from './views/Quiz';
 
-export default class App extends React.Component {
+class Home extends React.Component {
+  static navigationOptions = {
+      header: null,
+  };
+
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={style.container}>
         <View style={style.top}>
-          <Text style={style.title}>KARATE QUIZ</Text>
+          <Text style={style.title}>MY QUIZ</Text>
         </View>
 
         <View style={style.content}>
-          <Text style={style.descriptionText}>Multiple choice 10 random techniques for kyu 10-7</Text>
+          <Text onPress={this._handlePress} style={style.descriptionText}>Multiple choice, 10 random questions</Text>
 
-          <RoundedBtn text={'START'} />
+          <RoundedBtn
+            text={'START'}
+            onPress={() => navigate('QuizScreen')}
+          />
         </View>
-
       </View>
     );
+  }
+}
+
+const QuizApp = StackNavigator({
+  HomeScreen: { screen: Home },
+  QuizScreen: { screen: Quiz },
+});
+
+export default class App extends React.Component {
+  render() {
+      return <QuizApp />;
+      // return <Home />;
   }
 }
 
@@ -29,7 +50,7 @@ const style = StyleSheet.create({
     backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
-    paddingTop: 40,
+    paddingTop: 140,
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20
@@ -57,12 +78,12 @@ const style = StyleSheet.create({
       textAlign: 'center',
   },
   roundedBtn: {
-      width: 200,
+      width: 220,
       backgroundColor: '#639600',
       borderRadius: 50,
-      marginBottom: 13,
-      paddingTop: 8,
-      paddingBottom: 8
+      marginBottom: 20,
+      paddingTop: 16,
+      paddingBottom: 16
   },
   descriptionText: {
     color: '#d7933f',
