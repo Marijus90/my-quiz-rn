@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
 
-// import BackgroundImage from '../containers/BackgroundImage';
+// import BackgroundImage from './components/BackgroundImageAndAds';
 import RoundedBtn from './components/RoundedBtn';
 
 export default class App extends React.Component {
@@ -13,8 +13,9 @@ export default class App extends React.Component {
         </View>
 
         <View style={style.content}>
-          <RoundedBtn text={'Learn'} />
-          <RoundedBtn text={'Take The Quiz'} />
+          <Text style={style.descriptionText}>Multiple choice 10 random techniques for kyu 10-7</Text>
+
+          <RoundedBtn text={'START'} />
         </View>
 
       </View>
@@ -63,4 +64,14 @@ const style = StyleSheet.create({
       paddingTop: 8,
       paddingBottom: 8
   },
+  descriptionText: {
+    color: '#d7933f',
+    fontSize: 18,
+    lineHeight: 20,
+    maxWidth: 400,
+    paddingLeft: 5,
+    paddingRight: 5,
+    marginBottom: 80,
+    textAlign: 'center'
+},
 });
